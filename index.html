@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWIZE World Tour Tickets (Demo)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>TWIZE — World Tour (Demo)</h1>
+    <p class="muted">Fan-made ticket page — <strong>REDEEM IN-GAME</strong></p>
+  </header>
+
+  <main>
+    <section class="tickets">
+      <div class="ticket-card">
+        <h2>Floor Seats</h2>
+        <p class="small">General admission — unlimited</p>
+        <button class="btn" onclick="claimTicket('Floor')">Claim Floor Ticket</button>
+      </div>
+      <div class="ticket-card">
+        <h2>Standing / Soundcheck</h2>
+        <p class="small">Limited spots — 20 available</p>
+        <p class="small" id="soundLeft">Soundcheck spots left: 20</p>
+        <button class="btn" onclick="claimTicket('Soundcheck')">Claim Soundcheck Ticket</button>
+      </div>
+    </section>
+
+    <section class="reservation">
+      <h2>Your Reservation</h2>
+      <p id="ticketStatus">No reservation yet</p>
+      <div class="ticket-card ticket-output" id="ticketCard" style="display:none">
+        <div class="watermark">REDEEM IN-GAME — DEMO</div>
+        <p><strong>Event:</strong> TWIZE — World Tour</p>
+        <p><strong>Date:</strong> Nov 15, 2025</p>
+        <p><strong>Location:</strong> Roblox Arena</p>
+        <p><strong>Section:</strong> <span id="tSection">—</span></p>
+        <p><strong>Reservation Code:</strong> <span id="tCode">—</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="small">Fan-made demo site — not affiliated with Ticketmaster or Roblox</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
