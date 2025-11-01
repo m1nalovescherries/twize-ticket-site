@@ -69,3 +69,8 @@ header, footer {
   margin-top: 30px;
   text-align: center;
 }
+
+.small {
+  font-size: 0.8rem;
+}
+
