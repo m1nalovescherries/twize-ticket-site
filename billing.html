@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TWIZE World Tour — Billing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="billing">
+    <h1>Complete Your Reservation</h1>
+    <p id="billingInfo">Loading your ticket...</p>
+    <button id="confirmBtn">Confirm Reservation</button>
+  </section>
+</main>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const claim = JSON.parse(localStorage.getItem("twizeTicketClaim") || "null");
+  if (!claim) {
+    document.getElementById("billingInfo").textContent = "No ticket found. Go back to claim a ticket first.";
+    document.getElementById("confirmBtn").disabled = true;
+    return;
+  }
+
+  document.getElementById("billingInfo").innerHTML = `
+    <strong>Event:</strong> TWIZE — World Tour<br>
+    <strong>Date:</strong> ${claim.day}<br>
+    <strong>Section:</strong> ${claim.section}<br>
+    <strong>Reservation Code:</strong> ${claim.code}<br>
+    <strong>Time:</strong> 9 PM CET
+  `;
+
+  document.getElementById("confirmBtn").addEventListener("click", () => {
+    alert("Your ticket has been confirmed!"); 
+    // You can optionally redirect them to a "thank you" page:
+    // window.location.href = "thankyou.html";
+  });
+});
+</script>
+</body>
+</html>
