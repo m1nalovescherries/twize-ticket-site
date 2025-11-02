@@ -5,6 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TWIZE World Tour — Billing</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .billing {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+  }
+
+  .billing h1 {
+    margin-bottom: 1rem;
+    color: #ff758c;
+  }
+
+  .billing p {
+    margin: 0.5rem 0;
+  }
+
+  #confirmBtn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #ff7eb3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  #confirmBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+</style>
 </head>
 <body>
 <main>
@@ -16,14 +62,19 @@
 </main>
 
 <script>
+// Wait for the page to load
 window.addEventListener("DOMContentLoaded", () => {
+  // Get the claimed ticket from localStorage
   const claim = JSON.parse(localStorage.getItem("twizeTicketClaim") || "null");
+
   if (!claim) {
+    // No ticket claimed
     document.getElementById("billingInfo").textContent = "No ticket found. Go back to claim a ticket first.";
     document.getElementById("confirmBtn").disabled = true;
     return;
   }
 
+  // Display ticket info
   document.getElementById("billingInfo").innerHTML = `
     <strong>Event:</strong> TWIZE — World Tour<br>
     <strong>Date:</strong> ${claim.day}<br>
@@ -32,9 +83,10 @@ window.addEventListener("DOMContentLoaded", () => {
     <strong>Time:</strong> 9 PM CET
   `;
 
+  // Handle confirm button click
   document.getElementById("confirmBtn").addEventListener("click", () => {
-    alert("Your ticket has been confirmed!"); 
-    // You can optionally redirect them to a "thank you" page:
+    alert("Your ticket has been confirmed!");
+    // Optional: redirect to a thank you page
     // window.location.href = "thankyou.html";
   });
 });
